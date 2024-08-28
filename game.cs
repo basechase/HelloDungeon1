@@ -27,8 +27,8 @@ namespace hello_dungeon
                 Console.WriteLine();
                 Console.WriteLine("Gold " + playerGold);
                 Console.WriteLine();
-                Console.WriteLine("You find yourself in a generic dungeon with " +
-                "two doors. Which door do you choose?");
+                Console.WriteLine("A car salesman appears regaurding your cars extended warranty, do you convserse or continue?");
+               
                 Console.WriteLine();
             Console.WriteLine();
                 Console.WriteLine();
