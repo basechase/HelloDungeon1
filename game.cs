@@ -41,7 +41,7 @@ namespace hello_dungeon
             Console.WriteLine(player.playerRole + " Gold:   " + player.playerGold);
             Console.WriteLine("Role Selected:   " + player.playerRole);
             Console.WriteLine(player.playerRole + " Health Potions:   " + player.playerPotion);
-
+            Console.WriteLine();
         }
 
 
@@ -85,7 +85,8 @@ namespace hello_dungeon
             // function GetInput2 used, only takes two options/strings after the initial question
 
 
-            input = GetInput2("You wake up in a dark cave, out of the shadows a car salesman appears regarding you cars extended warranty. Do you pass on or conversate?", "Pass on", "Conversate");
+            input = GetInput2("You wake up in a dark cave, out of the shadows a car salesman appears regarding you cars extended warranty. " +
+                "Do you pass on or conversate?", "Pass on", "Conversate");
             if (input == 1)
             {
                 Console.WriteLine("Care salesman: Well fairwell then!");
@@ -144,57 +145,84 @@ namespace hello_dungeon
             {
                 Console.WriteLine("You jump over the coyote, scaring he/she/they/them out of the cave.");
             }
+
             else if (input == 1 && player1.playerRole == "Wizard")
             {
                 Console.WriteLine("You sprint away from the coyote, it dashes towards you and slips into the hole. You walk on.");
             }
+
             else if (input == 1 && player1.playerRole == "Fighter")
             {
                 Console.WriteLine("The coyote charges, you sidestep and it knocks itself out on the cave wall.");
+
             }
             else if (input == 2 && player1.playerRole == "Warrior")
+
             {
                 Console.WriteLine("You curb stomp the coyote into a puddle of mush.");
                 SubMana();
             }
+
             else if (input == 2 && player1.playerRole == "Wizard")
             {
                 Console.WriteLine("You cast an ice spell, freezing the coyote solid.");
                 SubMana();
             }
+
             else if (input == 2 && player1.playerRole == "Fighter")
             {
                 Console.WriteLine("You two piece the coyote caving in his dome.");
                 SubMana();
             }
 
-           
+            //GetInput function called to decide 
+            //player takes damage, player stats are printed to player
+
+            SubHealth(2);
+            input = GetInput2("A Shaq sized Ogre smacks you with the car salesman's body, do you ",
+                 "take a health potion", "save the potion for later");
+
+            if (input == 1)
+            {
+                Potion();
+            }
+            else if (input == 2 || input != 1)
+            {
+                Console.WriteLine("alright tough guy");
+            }
+            
 
 
                 //SubMana function for special ability use, prints playerstats afterwards
                 int SubMana()
                 
                 {
+                  
                     Console.WriteLine();
-                    player1.playerMana -= 20;
+                    player1.playerMana -= 25;
                     PrintPlayerStats(player1);
                     Console.WriteLine();
                     return 0;
                 }
             
+                int SubHealth(int i)
+                {
+                 player1.playerHealth -= ( i * 25);
+                PrintPlayerStats(player1);
+                return 0;
+                }
                     
                 
 
             //work in progress mana/health potion
             int Potion()
             {
-                if (player1.playerHealth <= 80)
+                if (player1.playerHealth <= 50)
                 {
                     Console.WriteLine();
                     player1.playerPotion -= 1;
-                    player1.playerHealth += 20;
-                    Console.WriteLine("Your health is now: " + player1.playerHealth);
-                    Console.WriteLine();
+                    player1.playerHealth += 50;
+                    PrintPlayerStats(player1);
                 }
                 else
                 {
