@@ -211,11 +211,16 @@ namespace hello_dungeon
                     Console.WriteLine("alright tough guy");
                 }
 
+            Console.WriteLine();
+            Console.WriteLine("The peanut brain oger stumbles around drunkely and clears a path out of the dungeon. You are now a free man.");
+
+
             _gameover = true;
             }
         //end
         void End()
         {
+            Console.WriteLine();
             Console.WriteLine("Game Over");
             Console.ReadKey();
         }
